@@ -1,0 +1,20 @@
+.container {
+  max-width: 720px;
+}
+.task-item {
+  width: 100%;
+  padding:0px;
+}
+.todo-text {
+  display: inline-block;
+  padding: .375rem .75rem;
+}
+.task-menu {
+  float: right;
+}
+.edit-task {
+  margin-bottom: 0;
+}
+#editTask {
+  border: none;
+}

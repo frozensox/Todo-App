@@ -8,7 +8,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/', 'TaskController@delete');
     // Route::put('/', [TaskController::class, 'change']);
     // Route::patch('/', [TaskController::class, 'sort']);
-    // Route::get('/edit/{item}', [TaskController::class, 'edit']);
-    // Route::post('/edit/{item}', [TaskController::class, 'update']);
+    Route::get('/edit/{task}', [TaskController::class, 'edit']);
+    Route::post('/edit/{task}', [TaskController::class, 'update']);
 });
 Route::get('/home', 'HomeController@index')->name('home');

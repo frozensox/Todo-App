@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -36,7 +36,13 @@
   <!-- Local JS -->
   <script type="text/javascript">
     $(function () {
-      $('#inputToDo').focus();
+      $('.onload-focus').each(function() {
+          $(this).focus();
+          this.setSelectionRange(-1, -1);
+      });
+      $('textarea').on('focus', function() {
+        this.setSelectionRange(0, 255);
+      });
     });
   </script>
 </body>

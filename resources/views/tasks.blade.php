@@ -40,17 +40,23 @@
           </div>
         </form>
 @else
-        <span class="todo-text">{{ $task->todo }}</span>
-        <form class="task-menu" method="GET" action="/edit/{{ $task->id }}">
-          @csrf
+        <p class="todo-text">{{ $task->todo }}</p>
+        <button class="task-menu-popper" type="button">
+          <div class="popper-button-icon"></div>
+          <div class="popper-button-icon"></div>
+        </button>
+        <div class="task-menu d-none">
+          <form class="task-menu-form" method="GET" action="/edit/{{ $task->id }}">
+            @csrf
 
-          <button class="btn btn-link task-menu-button" type="submit" name="id" value="{{ $task->id }}">編集</button>
-        </form>
-        <form class="task-menu" method="POST" action="/">
-          @csrf @method('DELETE')
+            <button class="btn btn-link task-menu-button" type="submit" name="id" value="{{ $task->id }}">編集</button>
+          </form>
+          <form class="task-menu-form" method="POST" action="/">
+            @csrf @method('DELETE')
 
-          <button class="btn btn-link task-menu-button" type="submit" name="id" value="{{ $task->id }}">削除</button>
-        </form>
+            <button class="btn btn-link task-menu-button" type="submit" name="id" value="{{ $task->id }}">削除</button>
+          </form>
+        </div>
 @endif
       </li>
 @endforeach

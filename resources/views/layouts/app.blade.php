@@ -39,20 +39,41 @@
   <!-- Local JS -->
   <script type="text/javascript">
     $(function () {
-      $('.onload-focus').each(function() {
-          $(this).focus();
-          this.setSelectionRange(-1, -1);
+      $('.onload-focus').each((index, element) => {
+        $(element).focus();
+        element.setSelectionRange(-1, -1);
       });
-      $('textarea').on('focus', function() {
-        this.setSelectionRange(-1, -1);
-      });
-      $('textarea').each(function() {
-        this.style.height = this.scrollHeight + 'px';
+
+      $('textarea').each((index, element) => {
+        element.style.height = element.scrollHeight + 'px';
       });
       $('textarea').on('input', e => {
         e.target.style.height = '0';
         e.target.style.height = e.target.scrollHeight + 'px';
       });
+
+      $('.task-menu-popper').click(e => {
+        const thisTaskMenu = $(e.target).closest('.task-item').children('.task-menu')[0];
+        $(thisTaskMenu).toggleClass('d-none');
+        $('.task-menu').each((index, element) => {
+          if (element != thisTaskMenu) {
+            $(element).addClass('d-none');
+          }
+        });
+        $('.popup-bg-filter').toggleClass('d-none');
+      });
+      $('.popup-bg-filter').click(e => {
+        $('.task-menu').addClass('d-none');
+        $('.popup-bg-filter').addClass('d-none');
+      });
+      $('button:not(.task-menu-popper, .task-menu-button), textarea').focus(e => {
+        $('.task-menu').addClass('d-none');
+        $('.popup-bg-filter').addClass('d-none');
+      })
+      $(window).blur(e => {
+        $('.task-menu').addClass('d-none');
+        $('.popup-bg-filter').addClass('d-none');
+      })
     });
   </script>
 </body>

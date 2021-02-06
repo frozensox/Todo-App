@@ -9,10 +9,10 @@
 
       <div class="form-group input-task">
         <div class="input-group">
-          <input id="inputTask"@if(isset($target)) class="form-control"@else class="form-control onload-focus"@endif name="todo" type="text" maxlength="200" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" value="{{ old('todo') }}">
+          <textarea id="inputTask"@if(isset($target)) class="form-control"@else class="form-control onload-focus"@endif name="todo" type="text" maxlength="200" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false">{{ old('todo') }}</textarea>
           <div class="input-group-prepend">
             <button class="input-group-text store-task-button" type="submit">
-              <i class="fa fa-plus"></i>
+              <i class="fas fa-plus"></i>
             </button>
           </div>
         </div>
@@ -30,10 +30,10 @@
 
           <div class="form-group edit-task">
             <div class="input-group">
-              <input id="editTask"@if(!isset($target)) class="form-control"@else class="form-control onload-focus"@endif name="todo" type="text" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" value="{{ $task->todo }}">
+              <textarea id="editTask"@if(!isset($target)) class="form-control"@else class="form-control onload-focus"@endif name="todo" type="text" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false">{{ $task->todo }}</textarea>
               <div class="input-group-prepend">
                 <button class="input-group-text update-task-button" type="submit">
-                  <i class="fa fa-check"></i>
+                  <i class="fas fa-check"></i>
                 </button>
               </div>
             </div>

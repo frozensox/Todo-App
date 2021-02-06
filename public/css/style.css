@@ -4,6 +4,18 @@
 .container {
   max-width: 720px;
 }
+.edit-task {
+  margin-bottom: 0;
+}
+.edit-task textarea {
+  border: none;
+}
+.input-task textarea,
+.edit-task textarea {
+  height: 2.25rem;
+  overflow: hidden;
+  line-height: 1.5;
+}
 .task-item {
   width: 100%;
   padding:0px;
@@ -11,6 +23,9 @@
 .todo-text {
   display: inline-block;
   padding: .375rem .75rem;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 .task-menu {
   float: right;

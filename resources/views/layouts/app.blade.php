@@ -46,6 +46,13 @@
       $('textarea').on('focus', function() {
         this.setSelectionRange(-1, -1);
       });
+      $('textarea').each(function() {
+        this.style.height = this.scrollHeight + 'px';
+      });
+      $('textarea').on('input', e => {
+        e.target.style.height = '0';
+        e.target.style.height = e.target.scrollHeight + 'px';
+      });
     });
   </script>
 </body>

@@ -17,7 +17,7 @@ class TaskController extends Controller
     {
         // Validation
         $this->validate($request, [
-            'todo' => 'required|max:200'
+            'todo' => 'required|max:100'
         ]);
 
         $task = new Task;
@@ -58,7 +58,7 @@ class TaskController extends Controller
         } else {
             // Validation
             $this->validate($request, [
-                'todo' => 'max:200'
+                'todo' => 'max:100'
             ]);
 
             $task->todo = $request->todo;

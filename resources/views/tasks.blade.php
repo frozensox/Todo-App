@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <!--  Error Messages -->
-    @include('commons.errors')
+@include('commons.errors')
 
     <!-- Insert Task -->
     <form class="store-task-form w-100" method="POST" action="/">
-    @csrf
+      @csrf
+
       <div class="form-group input-task">
         <div class="input-group">
           <input id="inputTask"@if(isset($target)) class="form-control"@else class="form-control onload-focus"@endif name="todo" type="text" maxlength="200" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" value="{{ old('todo') }}">
@@ -20,13 +20,14 @@
     </form>
 
     <!-- Task List -->
-    @if (isset($tasks[0]))
+@if (isset($tasks[0]))
     <ul class="list-group">
-        @foreach ($tasks as $task)
+@foreach ($tasks as $task)
       <li id="taskItem{{ $task->id }}" class="list-group-item task-item">
-            @if (isset($target) && $task->id == $target)
+@if (isset($target) && $task->id == $target)
         <form class="edit-task-form w-100" method="POST" action="/edit/{{ $task->id }}">
-                @csrf
+          @csrf
+
           <div class="form-group edit-task">
             <div class="input-group">
               <input id="editTask"@if(!isset($target)) class="form-control"@else class="form-control onload-focus"@endif name="todo" type="text" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" value="{{ $task->todo }}">
@@ -38,20 +39,21 @@
             </div>
           </div>
         </form>
-            @else
+@else
         <span class="todo-text">{{ $task->todo }}</span>
         <form class="task-menu" method="GET" action="/edit/{{ $task->id }}">
-                @csrf
+          @csrf
+
           <button class="btn btn-link task-menu-button" type="submit" name="id" value="{{ $task->id }}">編集</button>
         </form>
         <form class="task-menu" method="POST" action="/">
-                @csrf
-                @method('DELETE')
+          @csrf @method('DELETE')
+
           <button class="btn btn-link task-menu-button" type="submit" name="id" value="{{ $task->id }}">削除</button>
         </form>
-            @endif
+@endif
       </li>
-        @endforeach
+@endforeach
     </ul>
-    @endif
+@endif
 @endsection

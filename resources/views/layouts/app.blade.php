@@ -24,9 +24,12 @@
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
+  <div class="container-fluid">
+    @include('commons.navbar')
+  </div>
+
   <div class="container">
-@include('commons.navbar')
-@yield('content')
+    @yield('content')
   </div>
 
   <!-- jQuery -->
@@ -41,7 +44,7 @@
           this.setSelectionRange(-1, -1);
       });
       $('textarea').on('focus', function() {
-        this.setSelectionRange(0, 255);
+        this.setSelectionRange(-1, -1);
       });
     });
   </script>

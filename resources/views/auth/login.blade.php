@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container">
+@error('session')
+    <div class="alert alert-info">
+        <ul>
+            <li>{{ $message }}</li>
+        </ul>
+    </div>
+@enderror
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

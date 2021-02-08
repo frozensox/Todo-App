@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="container">
+
 @include('commons.errors')
 
     <!-- Insert Task -->
@@ -62,4 +64,5 @@
 @endforeach
     </ul>
 @endif
+  </div>
 @endsection

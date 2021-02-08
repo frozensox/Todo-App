@@ -1,3 +1,4 @@
+  <div class="container-fluid">
     <nav class="navbar navbar-default navbar-light bg-light shadow-sm">
       <a class="navbar-brand" href="#">{{ config('app.name', 'Laravel') }}</a>
 
@@ -35,3 +36,4 @@
 @endguest
       </ul>
     </nav>
+  </div>

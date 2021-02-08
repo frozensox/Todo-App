@@ -24,13 +24,9 @@
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-  <div class="container-fluid">
     @include('commons.navbar')
-  </div>
 
-  <div class="container">
     @yield('content')
-  </div>
 
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
